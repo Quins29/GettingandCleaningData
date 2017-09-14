@@ -36,7 +36,7 @@ You should get this structure of your Directory :
         run_analysis.R
                 /Datas/
                         /TidyData/
-                        tidyData.txt
+                        tidyDataSet.txt
                 
                         /UCI HAR Dataset/
                         activity_labels.txt
