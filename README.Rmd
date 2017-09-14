@@ -1,0 +1,91 @@
+---
+title: "Getting & Cleaning Data - Project Week 4"
+author: "Christian QUINIOU"
+date: "10 septembre 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## README - Getting & Cleaning Data Course Project
+
+The goal of this project is to create a R code to prepare tidy data that can be used for analysis.
+We use a data set provided into data set package "UCI HAR Dataset package".
+This data set includes various text files provides by the result of study dealt upon Human Activity Recognition Using Smartphones Dataset.
+README.TXT file in this data set "UCI HAR Dataset" describe and explain the various TXT files that we do use for our project.
+
+You will find the sequential steps for creating the R code of the project :
+
+# Step 1 - Prerequisites to set your environment
+Into the your RStudio or R console set your Working Directory.
+Download the "README.md", "run_analysis.R"" and the "CodeBook.rmd" files to root Working directory (All steps of the run_analysis.R are describes in The CodeBook).
+After I create a "Datas" directory and into a "TidyData" child directory.
+Download the "tidyData.txt" and paste into the "TidyData" child directory.
+Now download and unzip the UCI HAR Dataset in the "Datas" directory.
+
+The package data for the project is here : 
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+You should get this structure of your Directory :
+
+        /
+        CodeBook.Rmd
+        README.MD
+        run_analysis.R
+                /Datas/
+                        /TidyData/
+                        tidyData.txt
+                
+                        /UCI HAR Dataset/
+                        activity_labels.txt
+                        features_info.txt
+                        features.txt
+                        README.txt
+                                /test/
+                                subject_test.txt
+                                X_test.txt
+                                Y_test.txt
+                                        /Inertial Signals/
+                                        body_acc_x_test.txt
+                                        body_acc_y_test.txt
+                                        body_acc_z_test.txt
+                                        body_gyro_x_test.txt
+                                        body_gyro_y_test.txt
+                                        body_gyro_z_test.txt
+                                        total_acc_x_test.txt
+                                        total_acc_y_test.txt
+                                        total_acc_z_test.txt
+                                /train/
+                                subject_train.txt
+                                X_train.txt
+                                Y_train.txt
+                                        /Inertial Signals/
+                                        body_acc_x_train.txt
+                                        body_acc_y_train.txt
+                                        body_acc_z_train.txt
+                                        body_gyro_x_train.txt
+                                        body_gyro_y_train.txt
+                                        body_gyro_z_train.txt
+                                        total_acc_x_train.txt
+                                        total_acc_y_train.txt
+                                        total_acc_z_train.txt
+
+# Step 2 - Launch the R script
+Load the R code source "run_analysis.R" script into the RStudio or R console.
+
+# Step 3 - Check that everything is OK
+- Normaly you do have "tidyData.txt" with the current date in this path: "/Datas/TidyData/tidyData.txt"
+- When you load "tidyData.txt" into the RStudio or R console with using this command:
+
+        library(data.table)
+        fread ("tidyData.txt", sep = " ", header = TRUE)
+        
+        test <- fread(file.path(getwd(), "./Datas/TidyData/tidyDataSet.txt"), sep = " ")
+        dim(test)
+        
+        ==> results : [1] 180  81
+        
+Your data set dimension is 180 obs. and 81 variables   
+---- END ------
